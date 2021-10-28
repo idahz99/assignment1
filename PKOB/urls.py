@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from PKOB import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('pkob/', include('App_Soc.urls')),
+    path('', views.index),
+    path('pkob/', include('App_Pkob.urls')),
+    # main page of site
 ]
