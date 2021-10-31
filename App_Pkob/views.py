@@ -19,7 +19,7 @@ from django.shortcuts import render
 
 
 def peopleinfo_report(request):
-    student_list = ["Ali", "Abu", "Ramli"]
-    return render(request, 'App_Pkob/peopleInfo_report.html', context={'student_list': student_list})
+    people_list = ["Ali", "Abu", "Ramli"]
+    return render(request, 'App_Pkob/peopleInfo_report.html', context={'people_list': people_list})
 
 
