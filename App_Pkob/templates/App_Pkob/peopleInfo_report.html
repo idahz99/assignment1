@@ -3,12 +3,9 @@
 
 <html lang="en">
 <head>
-
+<title>Report</title>
     <meta charset="UTF-8">
-    <title>Reporting</title>
-    {% block title %}
-    Report Page
-    {% endblock %}
+
    {% block content %}
  <style>
   table{
@@ -48,7 +45,7 @@ background-color:#B67F2D ;
         <td>{{ people.IcNo}}</td>
         <td> {{ people.Name }}</td>
         <td>{{ people.Phone}}</td>
-        <td> {{year2.pop }}</td>
+        <td> {{year2.pop}}</td>
         <td><a href="{% url "person-info" people.IcNo %}"><button style="border-radius: 10px; height: 30px;width:50px ; color:#B67F2D "  type="button"  >Edit</button></a></td>
         </tr>
         {% endfor %}

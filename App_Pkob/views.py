@@ -3,7 +3,7 @@ import datetime
 from .models import People
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from datetime import date
+
 # Create your views here.
 
 
@@ -29,6 +29,8 @@ def peopleinfo_report(request):
     year2= [("19"+ str(acyear)[:4]).replace("('","") for acyear in year]
 
     year2[:] = [current - int(getyear) for getyear in year2]
+    print(year2);
+    year2.reverse()
     print(year2);
     people_list = People.objects.all()
     print(people_list);
