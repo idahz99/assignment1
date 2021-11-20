@@ -11,6 +11,8 @@
 PKOB website or the  Pusat Kawalan Operasi Bencana is a website that is made to make the process of adding people in the system easier and convenient .The data is stored in a systematic order that makes manging people's information easier .A report of people is readily available and they can edit their phone details.
 
 ## Result/Output (Screenshot of the output)
+![Screenshot (208)](https://user-images.githubusercontent.com/57510929/142721197-1b9809fe-bc3c-431e-b4c2-610c8e6488ec.png)
+
 ## Youtube Presentation
 ## List of Python packages (including the version) used for this system
 Package    Version
