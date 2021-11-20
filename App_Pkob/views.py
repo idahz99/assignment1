@@ -11,7 +11,6 @@ from django.http import HttpResponse
 
 
 def people(request, ic):
-
     person = People.objects.get(IcNo=ic)
     return render(request, 'App_Pkob/peopleInfo.html', context={'person': person})
 
@@ -23,14 +22,29 @@ def penghulu(request):
 
 
 def peopleinfo_report(request):
+    i = 0;
     current = datetime.datetime.now().year
-    year = (People.objects.values_list('IcNo'))
+    year = (People.objects.values_list('IcNo', flat=True))
+    year2 = []
+    for yeart in year:
 
-    year2= [("19"+ str(acyear)[:4]).replace("('","") for acyear in year]
+        test = yeart[-4]
+        if test == "0":
+            print(yeart)
+            year2.append(("20" + str(yeart)[:4]).replace(",", ""))
+            print(year2)
+        else:
+            year2.append(("19" + str(yeart)[:4]).replace(",", ""))
+            print(datetime.datetime.now().month)
+    for getyear in year2:
+        if datetime.datetime.now().month < int(year2[i][2:4]):
+            print(int(year2[i][:4]))
+            year2[i] = current - int(year2[i][:4])
+            i += 1
+        else:
+            year2[i] = current - int(year2[i][:4])-1
+            i +=1
 
-    year2[:] = [current - int(getyear) for getyear in year2]
-    print(year2);
-    year2.reverse()
     print(year2);
     people_list = People.objects.all()
     print(people_list);
