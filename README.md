@@ -11,6 +11,11 @@ PKOB website or the  Pusat Kawalan Operasi Bencana is a website that is made to 
 
 ## Result/Output (Screenshot of the output)
 
+![Screenshot (213)](https://user-images.githubusercontent.com/57510929/142721809-02a2bb8c-e9b1-44da-914e-6bd2d1b9b433.png)
+![Screenshot (208)](https://user-images.githubusercontent.com/57510929/142721599-6667b856-30da-4089-8fe5-538ee3193057.png)
+![Screenshot (215)](https://user-images.githubusercontent.com/57510929/142721917-c88902de-c42c-4cb7-8856-486d0a720642.png)
+![image](https://user-images.githubusercontent.com/57510929/142721667-f54c08ef-950b-4fc1-8b45-953d95a077e2.png)
+
 ## Youtube Presentation
 https://youtu.be/0u43kLfwYwY
 https://pkobweb.herokuapp.com/
