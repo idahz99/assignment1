@@ -56,7 +56,7 @@ def register(request):
         phone_num = request.POST['pNum']
         if People.objects.filter(IcNo=ic).exists():
 
-            messages.info(request, 'Person identity card already exist in the system')
+            messages.info(request, 'Person identity card number already exist in the system')
             return redirect('register')
         else:
             people_ = People.objects.create(IcNo=ic, Name=full_name, Phone=phone_num)
