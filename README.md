@@ -15,7 +15,7 @@ PKOB  or the  Pusat Kawalan Operasi Bencana is a website that is made to make th
 
 ## Youtube Presentation
 
-https://youtu.be/ZdiWVaKwr48
+
 https://pkobweb.herokuapp.com/
 
 ## List of Python packages (including the version) used for this system

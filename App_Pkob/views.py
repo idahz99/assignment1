@@ -33,16 +33,16 @@ def peopleinfo_report(request):
             print(yeart)
             year2.append(("20" + str(yeart)[:4]).replace(",", ""))
             print(year2)
-        else:
+        elif test =='5' or test == "6" or test == '7':
             year2.append(("19" + str(yeart)[:4]).replace(",", ""))
             print(datetime.datetime.now().month)
     for getyear in year2:
-        if datetime.datetime.now().month < int(year2[i][2:4]):
-            print(int(year2[i][:4]))
-            year2[i] = current - int(year2[i][:4])
+        if datetime.datetime.now().month < int(year2[i][-2:]):
+            print(int(year2[i][-2:]))
+            year2[i] = current - int(year2[i][:4])-1
             i += 1
         else:
-            year2[i] = current - int(year2[i][:4])-1
+            year2[i] = current - int(year2[i][:4])
             i +=1
 
     print(year2);
