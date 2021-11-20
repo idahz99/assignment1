@@ -31,24 +31,18 @@ def peopleinfo_report(request):
         test = yeart[-4]
         if test == "0":
             print(yeart)
-            year2.append(("20" + str(yeart)[:4]).replace(",", ""))
+            year2.append(("20" + str(yeart)[:2]).replace(",", ""))
             print(year2)
-        elif test =='5' or test == "6" or test == '7':
-            year2.append(("19" + str(yeart)[:4]).replace(",", ""))
+        elif test == '5' or test == "6" or test == '7':
+            year2.append(("19" + str(yeart)[:2]).replace(",", ""))
             print(datetime.datetime.now().month)
-    for getyear in year2:
-        if datetime.datetime.now().month < int(year2[i][-2:]):
-            print(int(year2[i][-2:]))
-            year2[i] = current - int(year2[i][:4])-1
-            i += 1
-        else:
-            year2[i] = current - int(year2[i][:4])
-            i +=1
 
+
+    year2[:] = [current - int(getyear) for getyear in year2]
     print(year2);
     people_list = People.objects.all()
     print(people_list);
-    return render(request, 'App_Pkob/peopleInfo_report.html', context={'people_list': people_list, "year2": year2})
+    return render(request, 'App_Pkob/peopleInfo_report.html', context={'people_list': people_list,'year2':year2 })
 
 
 def edit(request):
