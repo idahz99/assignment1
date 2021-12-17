@@ -55,7 +55,7 @@ input[type=tel] {
 </style>
 <div class=" contain">
 
-<form action= "edit-info" method="POST">
+<form action= "{% url "edit-info" %}" method="POST">
 {% csrf_token %}
 
 <label for="fullname"> Name:</label><br>

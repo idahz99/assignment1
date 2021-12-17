@@ -11,6 +11,8 @@ from django.http import HttpResponse
 
 
 def people(request, ic):
+
+    print(ic)
     person = People.objects.get(IcNo=ic)
     return render(request, 'App_Pkob/peopleInfo.html', context={'person': person})
 
@@ -37,12 +39,11 @@ def peopleinfo_report(request):
             year2.append(("19" + str(yeart)[:2]).replace(",", ""))
             print(datetime.datetime.now().month)
 
-
     year2[:] = [current - int(getyear) for getyear in year2]
     print(year2);
     people_list = People.objects.all()
     print(people_list);
-    return render(request, 'App_Pkob/peopleInfo_report.html', context={'people_list': people_list,'year2':year2 })
+    return render(request, 'App_Pkob/peopleInfo_report.html', context={'people_list': people_list, 'year2': year2})
 
 
 def edit(request):
@@ -55,6 +56,14 @@ def edit(request):
         print("not successfull")
 
 
+def delete(request, ic):
+    print("deleted")
+    person = People.objects.get(IcNo=ic)
+    person.delete()
+    messages.info(request, " Delete " + ic + " successful")
+    return redirect('peopleinfo')
+
+
 def register(request):
     if request.method == 'POST':
         print(request.POST)
@@ -62,15 +71,21 @@ def register(request):
         full_name = request.POST['fullname']
         ic = request.POST['icNo']
         phone_num = request.POST['pNum']
+        ic[-4]
+        value = ic[-4] != '5'
+        print(value)
+
+
         if People.objects.filter(IcNo=ic).exists():
-
-            messages.info(request, 'Person identity card number already exist in the system')
-            return redirect('register')
+                messages.info(request, 'Person identity card number already exist in the system')
+                return redirect('register')
+        elif ic[-4] == '0' or ic[-4] == '5' or ic[-4] == '6' or ic[-4] == '7':
+                print("hey1")
+                people_ = People.objects.create(IcNo=ic, Name=full_name, Phone=phone_num)
+                people_.save()
+                return redirect('register')
         else:
-            people_ = People.objects.create(IcNo=ic, Name=full_name, Phone=phone_num)
-            people_.save()
-
-        return redirect('register')
-
+                messages.info(request, 'Invalid Ic')
+                return redirect('register')
     else:
         return render(request, 'App_Pkob/Register.html')
